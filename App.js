@@ -30,9 +30,6 @@ export default class App extends Component {
         <Text style={styles.instructions}>
           To get started, click on the button for demo notification 
         </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
         <Button
         onPress={this.onPressLearnMore}
         title="Learn More"
