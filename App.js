@@ -16,10 +16,11 @@ import {
   NotificationDemo 
 } from 'react-native';
 //import { sendNotification } from './NotificationDemo'
+import PushNotification from 'react-native-push-notification';
 
 
 
-var notification = require('react-native').NativeModules.NotificationDemo
+//var notification = require('react-native').NativeModules.NotificationDemo
 export default class App extends Component {
   render() {
     return (
@@ -32,7 +33,7 @@ export default class App extends Component {
         </Text>
         <Button
         onPress={this.onPressLearnMore}
-        title="Learn More"
+        title="Show Notification"
         accessibilityLabel="Learn more about this purple button"
       />
 
@@ -42,8 +43,13 @@ export default class App extends Component {
 
   onPressLearnMore() {
     Alert.alert('on Press Notification!');
-    notification.sendNotification
-   }
+    //notification.sendNotification
+    PushNotification.localNotificationSchedule({ 
+      message: "My Notification Message", // message 
+      date: new Date(Date.now() + (60)) // your required time 
+      }); 
+       }
+
 
 }
 
