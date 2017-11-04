@@ -13,6 +13,7 @@
 		"react-native": "0.49.5",
 		"react-native-button": "^2.1.0",
 		"react-native-button-component": "^0.1.25",
+		"react-native-event-bridge": "^0.7.0",
 		"react-native-local-notifications": "^1.0.0",
 		"react-native-push-notification": "^3.0.1",
 		"save": "^2.3.1",

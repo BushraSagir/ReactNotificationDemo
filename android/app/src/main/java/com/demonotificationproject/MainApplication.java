@@ -3,6 +3,7 @@ package com.demonotificationproject;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import net.mischneider.MSREventBridgePackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.github.wumke.RNLocalNotifications.RNLocalNotificationsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new MSREventBridgePackage(),
             new ReactNativePushNotificationPackage(),
             new RNLocalNotificationsPackage(),
             new LinearGradientPackage(),

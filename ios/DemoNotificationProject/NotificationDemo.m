@@ -18,20 +18,22 @@ RCT_EXPORT_MODULE();
 
 }
 
-RCT_EXPORT_METHOD(sendNotification) {
-NSLog(@"Notifications Called");
-
+RCT_EXPORT_METHOD(sendNotification:(RCTResponseSenderBlock)callback) {
+  NSLog(@"Notifications Called");
   UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scheduleLocalNotifications) name:@"SnoozeNotifcation" object:nil];
   [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
     if (settings.authorizationStatus == UNAuthorizationStatusAuthorized) {
       // Notifications allowed
-      [self scheduleLocalNotifications];
+  [self scheduleLocalNotifications];
     } else {
       // Notifications not allowed
     }
   }];
 }
+
+
+
 
 #pragma mark - Custom Methods
 
@@ -58,7 +60,7 @@ NSLog(@"Notifications Called");
   content.categoryIdentifier = @"UYLReminderCategory";
   content.sound = [UNNotificationSound defaultSound];
   
-  UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:3 repeats:NO];
+  UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:0 repeats:NO];
   
   NSString *identifier = @"UYLLocalNotification";
   UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
@@ -68,5 +70,6 @@ NSLog(@"Notifications Called");
       NSLog(@"Something went wrong: %@",error);
     }
   }];
+  
 }
 @end

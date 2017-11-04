@@ -37,6 +37,7 @@
 		3FA8F12F366447938A82ABB0 /* libRNSpinkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C21675EE2F425E88B14809 /* libRNSpinkit.a */; };
 		5915A7B91FADC6D900D24109 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5915A79F1FADC47C00D24109 /* libRCTPushNotification.a */; };
 		59277B1B1FAC598E0045D092 /* NotificationDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 59277B1A1FAC598E0045D092 /* NotificationDemo.m */; };
+		596AB9F01FADEF4600AD9A67 /* libMSREventBridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 596AB9CA1FADEF2000AD9A67 /* libMSREventBridge.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
@@ -281,6 +282,13 @@
 			remoteGlobalIDString = 641194871EC9FD4A00D4FC03;
 			remoteInfo = "RNSpinkit-tvOS";
 		};
+		596AB9C91FADEF2000AD9A67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 596AB9C51FADEF2000AD9A67 /* MSREventBridge.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = MSREventBridge;
+		};
 		5E9157321DD0AC6500FF2AA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
@@ -343,6 +351,7 @@
 		5915A78D1FADC47B00D24109 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		59277B191FAC598E0045D092 /* NotificationDemo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NotificationDemo.h; path = DemoNotificationProject/NotificationDemo.h; sourceTree = "<group>"; };
 		59277B1A1FAC598E0045D092 /* NotificationDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NotificationDemo.m; path = DemoNotificationProject/NotificationDemo.m; sourceTree = "<group>"; };
+		596AB9C51FADEF2000AD9A67 /* MSREventBridge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MSREventBridge.xcodeproj; path = "../node_modules/react-native-event-bridge/ios/MSREventBridge.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -364,6 +373,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				596AB9F01FADEF4600AD9A67 /* libMSREventBridge.a in Frameworks */,
 				5915A7B91FADC6D900D24109 /* libRCTPushNotification.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -554,6 +564,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		596AB9C61FADEF2000AD9A67 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				596AB9CA1FADEF2000AD9A67 /* libMSREventBridge.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +593,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				596AB9C51FADEF2000AD9A67 /* MSREventBridge.xcodeproj */,
 				5915A78D1FADC47B00D24109 /* RCTPushNotification.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -752,6 +771,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 596AB9C61FADEF2000AD9A67 /* Products */;
+					ProjectRef = 596AB9C51FADEF2000AD9A67 /* MSREventBridge.xcodeproj */;
+				},
 				{
 					ProductGroup = 00C302A81ABCB8CE00DB3ED1 /* Products */;
 					ProjectRef = 00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */;
@@ -1042,6 +1065,13 @@
 			fileType = archive.ar;
 			path = libRNSpinkit.a;
 			remoteRef = 596AB9931FADCC0100AD9A67 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		596AB9CA1FADEF2000AD9A67 /* libMSREventBridge.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMSREventBridge.a;
+			remoteRef = 596AB9C91FADEF2000AD9A67 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */ = {
