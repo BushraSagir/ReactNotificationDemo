@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <React/RCTConvert.h>
 #import <React/RCTBridgeModule.h>
-#import <React/RCTBundleURLProvider.h>
 #import <React/RCTBridge.h>
-#import <React/RCTRootView.h>
 
 @interface NotificationDemo : NSObject<RCTBridgeModule>
 @end

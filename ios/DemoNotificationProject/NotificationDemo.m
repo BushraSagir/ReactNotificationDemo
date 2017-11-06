@@ -8,7 +8,6 @@
 
 #import "NotificationDemo.h"
 #import <UserNotifications/UserNotifications.h>
-#import <React/RCTRootView.h>
 
 @implementation NotificationDemo
 RCT_EXPORT_MODULE();
@@ -18,7 +17,8 @@ RCT_EXPORT_MODULE();
 
 }
 
-RCT_EXPORT_METHOD(sendNotification:(RCTResponseSenderBlock)callback) {
+RCT_EXPORT_METHOD(sendNotificationresolver: (RCTPromiseResolveBlock)resolve
+								 rejecter: (RCTPromiseRejectBlock)reject) {
   NSLog(@"Notifications Called");
   UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scheduleLocalNotifications) name:@"SnoozeNotifcation" object:nil];
@@ -39,37 +39,23 @@ RCT_EXPORT_METHOD(sendNotification:(RCTResponseSenderBlock)callback) {
 
 
 - (void)scheduleLocalNotifications {
-  UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-  
-  UNNotificationAction *snoozeAction = [UNNotificationAction actionWithIdentifier:@"Snooze"
-                                                                            title:@"Snooze" options:UNNotificationActionOptionNone];
-  UNNotificationAction *deleteAction = [UNNotificationAction actionWithIdentifier:@"Delete"
-                                                                            title:@"Delete" options:UNNotificationActionOptionDestructive];
-  
-  UNNotificationCategory *category = [UNNotificationCategory categoryWithIdentifier:@"UYLReminderCategory"
-                                                                            actions:@[snoozeAction,deleteAction] intentIdentifiers:@[]
-                                                                            options:UNNotificationCategoryOptionNone];
-  NSSet *categories = [NSSet setWithObject:category];
-  
-  [center setNotificationCategories:categories];
-  
-  
-  UNMutableNotificationContent *content = [UNMutableNotificationContent new];
-  content.title = @"Don't forget";
-  content.body = @"Buy some milk";
-  content.categoryIdentifier = @"UYLReminderCategory";
-  content.sound = [UNNotificationSound defaultSound];
-  
-  UNTimeIntervalNotificationTrigger *trigger = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:0 repeats:NO];
-  
-  NSString *identifier = @"UYLLocalNotification";
-  UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:identifier content:content trigger:trigger];
-  
-  [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
-    if (error != nil) {
-      NSLog(@"Something went wrong: %@",error);
-    }
-  }];
+  UNMutableNotificationContent *objNotificationContent = [[UNMutableNotificationContent alloc] init];
+	objNotificationContent.title = [NSString localizedUserNotificationStringForKey:@"Notification!" arguments:nil];
+	objNotificationContent.body = [NSString localizedUserNotificationStringForKey:@"This is local demo local notification message!"
+																																			arguments:nil];
+	objNotificationContent.sound = [UNNotificationSound defaultSound];
+	
+	UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:@"ten"
+																																				content:objNotificationContent trigger:nil];
+	UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+	[center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+		if (!error) {
+			NSLog(@"Local Notification succeeded");
+		}
+		else {
+			NSLog(@"Local Notification failed");
+		}
+	}];
   
 }
 @end

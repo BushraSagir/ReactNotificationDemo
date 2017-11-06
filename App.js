@@ -6,7 +6,6 @@
 
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
   Text,
   View,
@@ -46,7 +45,9 @@ export default class App extends Component {
 
   onPressLearnMore() {
     Alert.alert('on Press Notification!');
-    notification.sendNotification
+    async () => {
+      NativeModules.NotificationDemo.sendNotification();
+    }
   }
 
 
